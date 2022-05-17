@@ -1,0 +1,43 @@
+.qq-info {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+
+  height: 100px;
+  min-width: 265px;
+
+  color: #4c4c4c;
+  background-color: #f6f6f6;
+  border: 2px solid #424242;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.qq-info-left {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.qq-info-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.qq-info-right {
+
+  flex: 1 0 auto;
+
+}
+
+.qq-info-name {
+  min-height: 16.5px;
+
+  white-space: nowrap;
+}
+
+.qq-info-number {
+  color: #727272;
+  letter-spacing: -2px;
+}

@@ -3,6 +3,7 @@ import { getQQInfo } from '../../api/qq';
 import { IQQInfo } from '../../model';
 import { useAxios, useDebounce } from '../../util/hooks';
 import { isQQNumber } from '../../util/validators';
+import { QQInfo } from '../QQInfo';
 
 import styles from './QQQuerier.module.scss';
 
@@ -52,15 +53,13 @@ const QQQuerier: React.FC = () => {
               />
             </label>
           </div>
-          {loading && (
-            <div className={styles['search-loading']}>查询中</div>
-          )}
+          {loading && <div className={styles['search-loading']}>查询中</div>}
           {errorMsg && (
             <div className={styles['search-error-row']}>{errorMsg}</div>
           )}
         </div>
 
-        {qqInfo && <div>{JSON.stringify(qqInfo)}</div>}
+        {qqInfo && <QQInfo {...qqInfo} />}
       </main>
     </div>
   );
