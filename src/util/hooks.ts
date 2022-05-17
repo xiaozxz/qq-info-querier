@@ -2,7 +2,11 @@ import { AxiosResponse } from 'axios';
 import { useRef, useState } from 'react';
 
 type Fn = (...args: any) => any;
+type AxiosResponseFn<T> = (params: AxiosResponse<T, any>) => void;
 
+/**
+ * 防抖函数
+ */
 function useDebounce<T extends Fn>(fn: T, delay: number = 300) {
   const ref = useRef<NodeJS.Timeout | null>(null);
   return (...args: Parameters<T>) => {
@@ -11,9 +15,13 @@ function useDebounce<T extends Fn>(fn: T, delay: number = 300) {
   };
 }
 
-type AxiosResponseFn<T> = (params: AxiosResponse<T, any>) => void;
-
-function useAxios<T = any>(fn: Fn,  getResponseDo?: AxiosResponseFn<T>) {
+/**
+ * axios简单封装
+ */
+function useAxios<T = any>(
+  fn: (...args: any) => Promise<AxiosResponse<T>>,
+  getResponseDo?: AxiosResponseFn<T>
+) {
   const [loading, setLoading] = useState(false);
   const request = (params: any) => {
     setLoading(true);

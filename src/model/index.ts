@@ -38,7 +38,7 @@ export interface ILvzuan {
   vip: number;
   score: number;
   place: number;
-  payway: 8;
+  payway: number;
   isyear: number;
   vendor: number;
 }

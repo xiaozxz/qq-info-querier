@@ -40,7 +40,7 @@ const QQQuerier: React.FC = () => {
   };
 
   return (
-    <div className={styles['qq-querier']}>
+    <div className={styles['qq-querier']} >
       <h1 className={styles['qq-querier-header']}>QQ号查询</h1>
 
       <main>
@@ -63,7 +63,7 @@ const QQQuerier: React.FC = () => {
           </div>
           {loading && <div className={styles['search-loading']}>查询中</div>}
           {errorMsg && (
-            <div className={styles['search-error-row']}>{errorMsg}</div>
+            <div className={styles['search-error-msg']}>{errorMsg}</div>
           )}
         </div>
 
