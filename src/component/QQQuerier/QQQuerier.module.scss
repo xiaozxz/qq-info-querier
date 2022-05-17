@@ -89,6 +89,43 @@
   outline: none;
 }
 
+.circle-clear {
+  display: none;
+  position: relative;
+  margin-left: -20px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+.circle-clear::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.circle-clear::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 .search-error-row {
   position: absolute;
   left: 55px;

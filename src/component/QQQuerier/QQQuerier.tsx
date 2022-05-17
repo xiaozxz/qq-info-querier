@@ -4,7 +4,6 @@ import { IQQInfo } from '../../model';
 import { useAxios, useDebounce } from '../../util/hooks';
 import { isQQNumber } from '../../util/validators';
 import { QQInfo } from '../QQInfo';
-
 import styles from './QQQuerier.module.scss';
 
 const QQQuerier: React.FC = () => {
@@ -30,6 +29,10 @@ const QQQuerier: React.FC = () => {
     }
   }, 800);
 
+  const clearInput = () => {
+    setQQNumber('');
+  };
+
   const changeQQ = (qq: string) => {
     setErrorMsg('');
     setQQNumber(qq);
@@ -51,6 +54,11 @@ const QQQuerier: React.FC = () => {
                 placeholder={'输入后查询'}
                 onChange={(e) => changeQQ(e.target.value)}
               />
+              <i
+                className={styles['circle-clear']}
+                title="清空输入"
+                onClick={clearInput}
+              ></i>
             </label>
           </div>
           {loading && <div className={styles['search-loading']}>查询中</div>}
